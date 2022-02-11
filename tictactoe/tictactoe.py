@@ -5,7 +5,7 @@ AT CS - Ms. Namasivayam
 February 8th 2022
 TicTacToe
 
-Current version: User vs. user tic tac toe
+Current version: User vs. random NPC tic tac toe
 """
 
 class TicTacToe:

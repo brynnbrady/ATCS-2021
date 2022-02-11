@@ -66,10 +66,23 @@ class TicTacToe:
                 print("Bad input, try again")
         return
 
+    def take_random_turn(self, player):
+        goodInput = False
+        while(not goodInput):
+            randRow = random.randint(0, 2)
+            randCol = random.randint(0, 2)
+            if self.is_valid_move(randRow, randCol):
+                self.place_player(player, randRow, randCol)
+                goodInput = True
+        return
+
     def take_turn(self, player):
         # TODO: Simply call the take_manual_turn function
         print("Player ", player, ", it's your turn")
-        self.take_manual_turn(player)
+        if player == "X":
+            self.take_manual_turn(player)
+        else:
+            self.take_random_turn(player)
         return
 
     def check_col_win(self, player):

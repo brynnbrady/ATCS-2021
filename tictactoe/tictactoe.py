@@ -2,10 +2,10 @@ import random
 """
 Brynn Brady
 AT CS - Ms. Namasivayam
-February 8th 2022
+February 11th 2022
 TicTacToe
 
-Current version: User vs. user tic tac toe
+Current version: User vs. unbeatable NPC tic tac toe
 """
 
 class TicTacToe:
@@ -46,10 +46,7 @@ class TicTacToe:
 
     def place_player(self, player, row, col):
         # TODO: Place the player on the board
-        if player == "X":
-            self.board[row][col] = 'X'
-        else:
-            self.board[row][col] = 'O'
+        self.board[row][col] = player
         return
 
     def take_manual_turn(self, player):
@@ -76,13 +73,62 @@ class TicTacToe:
                 goodInput = True
         return
 
+    def minimax(self, player):
+        # base case
+        if self.check_win("O"):
+            return (10, None, None)
+        elif self.check_win("X"):
+            return (-10, None, None)
+        elif self.check_tie():
+            return (0, None, None)
+
+        # recursive case
+        if player == "O":
+            best = -10000
+            opt_row = -1
+            opt_col = -1
+            for row in range(3):
+                for col in range(3):
+                    if self.is_valid_move(row, col):
+                        # place the symbol, calc score, restore board to normal
+                        self.place_player("O", row, col)
+                        score = self.minimax("X")[0]
+                        self.place_player("-", row, col)
+                        if score >= best:
+                            opt_row = row
+                            opt_col = col
+                            best = score
+            return (best, opt_row, opt_col)
+        if player == "X":
+            worst = 10000
+            opt_row = -1
+            opt_col = -1
+            for row in range(3):
+                for col in range(3):
+                    if self.is_valid_move(row, col):
+                        # place the symbol, calc score, restore board to normal
+                        self.place_player("X", row, col)
+                        score = self.minimax("O")[0]
+                        if score < worst:
+                            worst = score
+                            opt_row = row
+                            opt_col = col
+                        self.place_player("-", row, col)
+            return (worst, opt_row, opt_col)
+
+    def take_minimax_turn(self, player):
+        score, row, col = self.minimax(player)
+        print(score, " ", row, " ", col)
+        self.place_player(player, row, col)
+        return
+
     def take_turn(self, player):
         # TODO: Simply call the take_manual_turn function
         print("Player ", player, ", it's your turn")
         if player == "X":
             self.take_manual_turn(player)
         else:
-            self.take_random_turn(player)
+            self.take_minimax_turn(player)
         return
 
     def check_col_win(self, player):

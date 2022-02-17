@@ -2,10 +2,10 @@ import random
 """
 Brynn Brady
 AT CS - Ms. Namasivayam
-February 11th 2022
+February 16th 2022
 TicTacToe
 
-Current version: User vs. unbeatable NPC tic tac toe
+Current version: User vs. NPC with changeable difficulty levels tic tac toe
 """
 
 class TicTacToe:
@@ -19,6 +19,20 @@ class TicTacToe:
         print("This is a two player game. Take turns inserting X's and O's into the grid.")
         print("The first person to score three in a row of their symbol wins!")
         return
+
+    def getDifficultyLevel(self):
+        while(True):
+            diffLevel = input("Select a difficulty level. Type 'easy', 'medium', or 'hard'")
+            # return the depth of tree depending on the difficulty they want
+            if diffLevel == "easy":
+                return 3
+            elif diffLevel == "medium":
+                return 5
+            elif diffLevel == "hard":
+                return 7
+            else:
+                print("Bad input, try again")
+
 
     def print_board(self):
         # TODO: Print the board
@@ -73,13 +87,15 @@ class TicTacToe:
                 goodInput = True
         return
 
-    def minimax(self, player):
+    def minimax(self, player, depth):
         # base case
         if self.check_win("O"):
             return (10, None, None)
         elif self.check_win("X"):
             return (-10, None, None)
         elif self.check_tie():
+            return (0, None, None)
+        elif depth == 0:
             return (0, None, None)
 
         # recursive case
@@ -92,7 +108,7 @@ class TicTacToe:
                     if self.is_valid_move(row, col):
                         # place the symbol, calc score, restore board to normal
                         self.place_player("O", row, col)
-                        score = self.minimax("X")[0]
+                        score = self.minimax("X", depth-1)[0]
                         self.place_player("-", row, col)
                         if score >= best:
                             opt_row = row
@@ -108,7 +124,7 @@ class TicTacToe:
                     if self.is_valid_move(row, col):
                         # place the symbol, calc score, restore board to normal
                         self.place_player("X", row, col)
-                        score = self.minimax("O")[0]
+                        score = self.minimax("O", depth-1)[0]
                         if score < worst:
                             worst = score
                             opt_row = row
@@ -116,19 +132,18 @@ class TicTacToe:
                         self.place_player("-", row, col)
             return (worst, opt_row, opt_col)
 
-    def take_minimax_turn(self, player):
-        score, row, col = self.minimax(player)
-        print(score, " ", row, " ", col)
+    def take_minimax_turn(self, player, depth):
+        score, row, col = self.minimax(player, depth)
         self.place_player(player, row, col)
         return
 
-    def take_turn(self, player):
+    def take_turn(self, player, depth):
         # TODO: Simply call the take_manual_turn function
         print("Player ", player, ", it's your turn")
         if player == "X":
             self.take_manual_turn(player)
         else:
-            self.take_minimax_turn(player)
+            self.take_minimax_turn(player, depth)
         return
 
     def check_col_win(self, player):
@@ -172,11 +187,12 @@ class TicTacToe:
     def play_game(self):
         # TODO: Play game
         self.print_instructions()
+        depth = self.getDifficultyLevel()
         self.print_board()
         player = "X"
         keepPlaying = True
         while(keepPlaying):
-            self.take_turn(player)
+            self.take_turn(player, depth)
             if self.check_win(player):
                 keepPlaying = False
                 print("Player, ", player, " wins!")

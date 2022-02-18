@@ -1,11 +1,12 @@
 import random
+import time
 """
 Brynn Brady
 AT CS - Ms. Namasivayam
-February 16th 2022
+February 18th 2022
 TicTacToe
 
-Current version: User vs. NPC with changeable difficulty levels tic tac toe
+Current version: User vs. NPC with changeable difficulty levels tic tac toe (with alpha/beta efficiency)
 """
 
 class TicTacToe:
@@ -22,7 +23,7 @@ class TicTacToe:
 
     def getDifficultyLevel(self):
         while(True):
-            diffLevel = input("Select a difficulty level. Type 'easy', 'medium', or 'hard'")
+            diffLevel = input("Select a difficulty level. Type 'easy', 'medium', 'hard', or 'unbeatable'")
             # return the depth of tree depending on the difficulty they want
             if diffLevel == "easy":
                 return 3
@@ -30,6 +31,8 @@ class TicTacToe:
                 return 5
             elif diffLevel == "hard":
                 return 7
+            elif diffLevel == "unbeatable":
+                return 10
             else:
                 print("Bad input, try again")
 
@@ -108,7 +111,7 @@ class TicTacToe:
                     if self.is_valid_move(row, col):
                         # place the symbol, calc score, restore board to normal
                         self.place_player("O", row, col)
-                        score = self.minimax("X", depth-1)[0]
+                        score = self.minimax("X", depth - 1)[0]
                         self.place_player("-", row, col)
                         if score >= best:
                             opt_row = row
@@ -124,16 +127,73 @@ class TicTacToe:
                     if self.is_valid_move(row, col):
                         # place the symbol, calc score, restore board to normal
                         self.place_player("X", row, col)
-                        score = self.minimax("O", depth-1)[0]
+                        score = self.minimax("O", depth - 1)[0]
+                        self.place_player("-", row, col)
                         if score < worst:
                             worst = score
                             opt_row = row
                             opt_col = col
+            return (worst, opt_row, opt_col)
+
+
+    def minimax_alpha_beta(self, player, depth, alpha, beta):
+        # base case
+        if self.check_win("O"):
+            return (10, None, None)
+        elif self.check_win("X"):
+            return (-10, None, None)
+        elif self.check_tie():
+            return (0, None, None)
+        elif depth == 0:
+            return (0, None, None)
+
+        # recursive case
+        if player == "O":
+            best = -10000
+            opt_row = -1
+            opt_col = -1
+            for row in range(3):
+                for col in range(3):
+                    if self.is_valid_move(row, col):
+                        # place the symbol, calc score, restore board to normal
+                        self.place_player("O", row, col)
+                        score = self.minimax_alpha_beta("X", depth-1, alpha, beta)[0]
                         self.place_player("-", row, col)
+                        if score >= best:
+                            opt_row = row
+                            opt_col = col
+                            best = score
+                        if score > alpha:
+                            alpha = score
+                        if alpha >= beta:
+                            return (best, opt_row, opt_col)
+            return (best, opt_row, opt_col)
+        if player == "X":
+            worst = 10000
+            opt_row = -1
+            opt_col = -1
+            for row in range(3):
+                for col in range(3):
+                    if self.is_valid_move(row, col):
+                        # place the symbol, calc score, restore board to normal
+                        self.place_player("X", row, col)
+                        score = self.minimax_alpha_beta("O", depth-1, alpha, beta)[0]
+                        self.place_player("-", row, col)
+                        if score < worst:
+                            worst = score
+                            opt_row = row
+                            opt_col = col
+                        if score < beta:
+                            beta = score
+                        if alpha >= beta:
+                            return (worst, opt_row, opt_col)
             return (worst, opt_row, opt_col)
 
     def take_minimax_turn(self, player, depth):
-        score, row, col = self.minimax(player, depth)
+        start = time.time()
+        score, row, col = self.minimax_alpha_beta(player, depth, -10000, 10000)
+        end = time.time()
+        print("The turn took:", end - start, "seconds")
         self.place_player(player, row, col)
         return
 

@@ -166,11 +166,11 @@ class BestOfAllTimeLogRes:
 ''' Main - create a logistic regression model that predicts whether a player will make the best of all time list'''
 if __name__ == '__main__':
     # Create model variable and get data
-    log_Res_Model = BestOfAllTimeLogRes()
-    log_Res_Model.load_data("wta_data.csv")
-    x = log_Res_Model.get_features()
-    y = log_Res_Model.get_target()
+    log_res_model = BestOfAllTimeLogRes()
+    log_res_model.load_data("wta_data.csv")
+    x = log_res_model.get_features()
+    y = log_res_model.get_target()
 
     # Create model and make prediction
-    log_Res_Model.create_model(x, y)
-    log_Res_Model.make_prediction()
+    log_res_model.create_model(x, y)
+    log_res_model.make_prediction()

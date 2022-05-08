@@ -167,7 +167,7 @@ class BestOfAllTimeLogRes:
 if __name__ == '__main__':
     # Create model variable and get data
     log_res_model = BestOfAllTimeLogRes()
-    log_res_model.load_data("wta_data_updated.csv")
+    log_res_model.load_data("updated_wta_data.csv")
     x = log_res_model.get_features()
     y = log_res_model.get_target()
 

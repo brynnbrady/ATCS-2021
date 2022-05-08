@@ -77,5 +77,5 @@ class GraphicsAndStats:
 if __name__ == '__main__':
     # Make graphs and statistical summaries to analyze tennis player data
     gs = GraphicsAndStats()
-    gs.load_data("wta_data_updated.csv")
+    gs.load_data("updated_wta_data.csv")
     # Insert graphs here

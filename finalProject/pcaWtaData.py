@@ -67,7 +67,7 @@ class PCAModel:
 if __name__ == '__main__':
     # Create model variable and get data
     pca_model = PCAModel()
-    pca_model.load_data("wta_data_updated.csv")
+    pca_model.load_data("updated_wta_data.csv")
     x = pca_model.get_features()
     pca_df = pca_model.get_pca_df_n_components(x, 2)
     pca_model.visualize_2d_pca_with_target(pca_df, "career_wins")

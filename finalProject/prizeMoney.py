@@ -132,7 +132,7 @@ class PrizeMoneyLinRes:
 if __name__ == '__main__':
     # Create model variable and get data
     lin_res_model = PrizeMoneyLinRes()
-    lin_res_model.load_data("wta_data.csv")
+    lin_res_model.load_data("wta_data_updated.csv")
 
     # Make prediction
     x, y = lin_res_model.get_x_and_y()

@@ -1,0 +1,51 @@
+player_name,year_turned_pro,height,starting_age,age_turned_pro,training_city,training_city_avg_income,tennis_academy,coach_age_fifteen,birth_city,birth_city_avg_income,parental_marital_status,sibling_number,which_child,career_wins,career_length,prize_money,highest_pro_ranking,best_of_all_time
+Evonne Goolagong Cawley,1971,66,9,20,"Sydney, Australia",78900,no,coach,"Griffith, Australia",66900,married,8,middle,704,22,1399431,1,yes
+Mary Pierce,1989,70,10,14,"Wesley Chapel, Florida, USA",39666,no,parent,"Montreal, Canada",45825,not married,2,oldest,511,13,9793119,3,yes
+Billie Jean King,1959,65,11,15,"Long Beach, CA, USA",30942,no,coach,"Long Beach, CA, USA",30942,married,1,oldest,695,31,1966487,1,yes
+Caroline Wozniacki,2005,70,7,15,"Farum, Denmark",63010,no,parent,"Odense, Denmark",38707,married,1,youngest,635,14.5,35233415,1,no
+Monica Seles,1989,70,5,15,"Bradenton, Florida, USA",26004,yes,coach,"Novi Sad, Serbia",24197,married,1,youngest,595,14,14891762,1,yes
+Roberta Vinci,1999,64,6,16,"Taranto, Italy",33357,no,coach,"Taranto, Italy",33357,married,1,youngest,565,19,11808215,1,no
+Chris Evert,1972,66,5,17,"Fort Lauderdale, FL, USA",31081,no,parent,"Fort Lauderdale, FL, USA",31081,married,4,middle,1309,15,8895195,1,yes
+Justine Henin,1999,65.5,2,16,"Rochefort, Belgium",74225,no,coach,"Liège, Belgium",72588,not married,3,middle,525,12,20863335,1,yes
+Martina Hingis,1994,67,2,14,"Rožnov pod Radhoštěm, Czech Republic",18960,no,parent,"Košice, Slovakia",30536,not married,0,only,548,21,24749074,1,yes
+Lindsay Davenport,1993,74,6,16,"Murrieta, CA, USA",32684,no,coach,"Palos Verdes Peninsula, CA, USA","215722",married,2,youngest,753,17,22166338,1,yes
+Johanna Konta,2008,71,8,17,"Barcelona, Spain",22979,yes,coach,"Sydney, Australia",78900,married,1,youngest,395,13,10008175,4,no
+Kiki Bertens,2009,72,6,17,"Berkel en Rodenrijs, Netherlands",30152,no,coach,"Wateringen, Netherlands",30152,married,2,middle,443,12,11653190,4,no
+Mari Osaka,2014,71,4,18,"Fort Lauderdale, FL, USA",31081,yes,coach,"Osaka, Japan",53627,married,1,oldest,196,7,90891,280,no
+Nicole Gibbs,2013,66,3,27,"Santa Monica, CA, USA",56863,no,parent,"Cincinnati, OH, USA",25846,married,0,only,303,8,1839720,68,no
+Barbora Strycova,2003,65,5,16,"Pilsen, Czechia",24096,no,coach,"Pilsen, Czechia",24096,married,1,oldest,564,19,12057535,16,no
+Carla Suarez Navarro,2003,64,9,15,"Barcelona, Spain",22979,yes,coach,"Municipality of Las Palmas, Spain",29430,married,1,youngest,516,18,11920116,6,no
+Julia Goerges,2005,71,5,16,"Bad Oldesloe, Germany",24298,no,coach,"Bad Oldesloe, Germany",24298,married,1,youngest,479,15,9913954,9,no
+Ekaterina Makarova,2004,69,5,16,"Moscow, Russia",23344,yes,coach,"Moscow, Russia",23344,married,1,oldest,436,15,12356996,8,no
+Johanna Larsson,2006,69,5,18,"Boden, Sweden",27729,no,coach,"Boden, Sweden",27729,married,0,only,443,14,4033736,45,no
+Magdalena Rybarikova,2005,71,8,16,"Bratislava, Slovakia",22948,yes,coach,"Piešt'any, Slovakia",25532,married,2,youngest,426,15,5139167,17,no
+Dominika Cibulkova,2004,63,8,15,"Bratislava, Slovakia",22948,no,coach,"Bratislava, Slovakia",22948,married,0,only,450,15,13725520,4,no
+Flavia Pennetta,2000,68,5,18,"Brindisi, Italy",34002,no,parent,"Brindisi, Italy",34002,married,1,youngest,582,15,14197886,6,no
+Jelena Jankovic,2000,70,9.5,14,"Bradenton, Florida, USA",26004,yes,coach,"Belgrade, Serbia",28976,married,2,middle,644,17,19089259,1,no
+Kim Clijsters,1997,69,5,14,"Antwerp, Belgium",74967,yes,coach,"Bilzen, Belgium",36984,married,1,oldest,523,15,24527039,1,yes
+Yaroslava Shvedova,2005,71,8,18,"Chernogolovka, Russia",23344,no,coach,"Moscow, Russia",23344,married,1,youngest,357,16,6591383,25,no
+Gabriela Sabatini,1985,69,6,14,"Buenos Aires, Argentina",6811,no,coach,"Buenos Aires, Argentina",6811,married,1,youngest,632,11,8785850,3,yes
+Regina Kulikova,2004,72,6,15,Italy ,37769,no,coach,"Almaty, Kazakhstan",8838,married,0,only,192,10,438568,65,no
+Peng Shuai,2001,70,8,15,"Tianjin, China",17203,yes,coach,"Xiangtan, China",8181,married,0,only,341,21,9617653,14,no
+Annika Beck,2009,67,4,15,"Bonn, Germany",52673,no,coach,"Giessen, Germany",52423,married,0,only,251,9,2254932,37,no
+Elena Vesnina,2002,69,7,16,"Sochi, Russia",4499,no,coach,"Lviv, Ukraine",10488,married,1,oldest,435,20,13011023,13,no
+Francesca Schiavone,1998,65,10,18,"Milan, Italy",43152,no,coach,"Milan, Italy",431512,married,1,youngest,614,20,11324245,4,no
+Shahar Peer,2004,67,6,17,"Maccabim, Israel",34076,no,coach,"Maccabim, Israel",34076,married,2,youngest,412,13,5148411,11,no
+Casey Dellacqua,2002,65,7,17,"Bruce, Australia",70799,yes,coach,"Perth, Australia",55741,married,2,oldest,348,16,4233102,26,no
+Svetlana Kuznetsova,2000,69,7,15,"Barcelona, Spain",22979,yes,coach,"Saint Petersburg, Russia",13557,married,1,youngest,670,15,25816890,2,no
+Samantha Stosur,1999,69,8,15,"Bruce, Australia",70799,no,coach,"Brisbane, Austrialia",52645,married,2,middle,607,23,19927553,4,no
+Raluca Olaru,2003,68,7,14,"Bucharest, Romania",14262,no,coach,"Bucharest, Romania",14262,married,1,youngest,258,19,1716336,53,no
+Lucie Safarova,2001,70,3,14,"Brno, Czech Republic",24986,no,coach,"Brno, Czech Republic",24986,married,1,youngest,448,18,12637555,5,no
+Melinda Czink,2000,70,10,18,"Delray Beach, Florida",31059,yes,coach,"Budapest, Hungary ",45778,married,1,oldest,126,14,1504389,37,no
+Aleksandra Wozniak,2005,69,3,18,"Quebec, Canada",51802,no,parent,"Montreal, Canada",45825,married,1,youngest,363,13,2028797,21,no
+Joe Zheng,2003,64.5,10,20,"Chengdu, China",13202,yes,coach,"Chengdu, China",13202,married,1,youngest,384,12,6157773,15,no
+Anna Chakvetadze,2003,68,8,16,"Moscow, Russia",23344,no,parent,"Moscow, Russia",23344,married,1,oldest,296,10,3909756,5,no
+Elena Baltacha,1997,69,10,14,"Kyiv, Ukraine",2145,no,coach,"Kyiv, Ukraine",2145,married,1,youngest,324,16,1190893,49,no
+Karolina Sprem,2001,68.5,9,15,"Varazdin, Croatia",20417,no,parent,"Varazdin, Croatia",20417,married,1,oldest,266,10,1298606,17,no
+Viktoriya Kutuzova,2003,67,7,14,"Odessa, Ukraine",36265,yes,parent,"Odessa, Ukraine",36265,married,0,only,190,11,586580,76,no
+Cages Buyukakcay,2006,68,8,17,"Istanbul, Turkey",6666,no,coach,"Istanbul, Turkey",6666,married,1,youngest,449,17,1228845,60,no
+CiCi Bellis,2016,67,3,17,"Atherton, CA, USA",144197,no,coach,"San Francisco, CA, USA",52677,married,0,only,138,6,1431153,35,no
+Pauline Parmentier,2000,69,6,14,"Biot, France",39566,yes,coach,"Cucq, France",17728,married,2,youngest,474,20,3788336,40,no
+Naomi Broady,2006,74,7,16,"Stockport, Great Britain",41822,no,coach,"Stockport, Great Britain",41822,married,3,middle,398,16,1285714,76,no
+Vanuatu King,2006,65,4,17,"Long Beach, CA, USA",30942,no,coach,"Monterey Park, CA, USA",26262,married,3,youngest,269,14,4446888,3,no
+Mathilde Johansson,2000,68,7,15,"Gothenburg, Sweden",42984,no,coach,"Gothenburg, Sweden",42984,married,1,oldest,386,16,1446131,59,no

@@ -108,7 +108,9 @@ class HighestRankingLinRes:
             actual = y_test[index]
 
             # Predicted y value
-            y_pred = predictions[index]
+            y_pred = round(predictions[index], 0) # Can only have whole number rankings
+            if y_pred < 1:
+                y_pred = 1 # Rankings need to be >= 1
 
             # Test x values
             x_height = x_test[index][0]
@@ -122,13 +124,14 @@ class HighestRankingLinRes:
             x_num_sibs = x_test[index][8]
             x_which_child = x_test[index][9]
 
+            # Print the prediction
             print("Height: ", x_height, " Starting Age: ", x_start_age, " Age Turned Pro: ", x_pro_age,
                   " Training City Average Income: ", x_train_inc, " Tennis Academy: ", x_academy, " Coach at Age 15: ",
                   x_coach, " Birth City Average Income: ", x_birth_inc, " Parental Marital Status: ", x_marital,
                   " Number of Siblings: ", x_num_sibs, " Which Child Order: ", x_which_child,
                   " Predicted highest ranking: ", y_pred, " Actual highest ranking: ", actual)
 
-''' Main - create a linear regression model that predicts a player's highest career ranking based on personal statistics '''
+''' Main - create a linear regression model that predicts a player's highest pro ranking based on personal features '''
 if __name__ == '__main__':
     # Create model variable and get data
     lin_res_model = HighestRankingLinRes()

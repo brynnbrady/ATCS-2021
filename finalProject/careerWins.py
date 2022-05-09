@@ -60,7 +60,7 @@ class CareerWinsLinRes:
 
     def create_model(self, x, y):
         """
-        Create a linear regression model that predicts the number of career wins a player has based on their
+        Create a linear regression model that predicts the number of career wins a player will have based on their
         personal statistics
         Prints out weights (coefficients) for each personal stat and the model's intercept
         :param x: personal features about a player

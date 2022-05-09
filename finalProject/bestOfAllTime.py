@@ -2,7 +2,6 @@
 A Logistic Regression Model to determine if a tennis player will
 ultimately make the "best of all time" list
 '''
-
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -115,6 +114,7 @@ class BestOfAllTimeLogRes:
         Get the personal features about a new player that the user wants to make a prediction about
         :return: the scaled inputted features
         """
+        # Get input from user
         height = int(input("How tall is the player in inches?\n"))
         starting_age = int(input("At what age did the player start playing?\n"))
         turned_pro = int(input("At what age did the player turn pro?\n"))
@@ -122,24 +122,22 @@ class BestOfAllTimeLogRes:
         birth_city_income = int(input("What is the average annual income in the city the player was born in?\n"))
         siblings = int(input("How many siblings does the player have?\n"))
 
+        # Replace qualitative data with quantitative data
         academy = str(input("Did the player train at a reputable academy?\n"))
         if academy == "no":
             academy = 0
         else:
             academy = 1
-
         coach = str(input("Was this player's coach a professional coach or a parent?\n"))
         if coach == "coach":
             coach = 0
         else:
             coach = 1
-
         marital_status = str(input("Are the player's parents married?\n"))
         if marital_status == "no":
             marital_status = 0
         else:
             marital_status = 1
-
         sibling_order = str(input("Is the player the oldest, youngest, middle, or only child?\n"))
         sibling_order = self.which_child_transformer.transform([sibling_order])[0]
 
@@ -159,9 +157,9 @@ class BestOfAllTimeLogRes:
         # Make and print the prediction
         x_pred = self.get_prediction_input()
         if self.model.predict(x_pred)[0] == "no":
-            print("This player will likely not make the best of all time list")
+            print("PREDICTION: This player will likely not make the best of all time list")
         else:
-            print("This player will likely make the best of all time list")
+            print("PREDICTION: This player will likely make the best of all time list")
 
 ''' Main - create a logistic regression model that predicts whether a player will make the best of all time list'''
 if __name__ == '__main__':

@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 ''' 
 Name: Prize Money linear regression class
 Description: machine learning, linear regression model that makes predictions a tennis players' career
-             prize money considering their personal statistics
+             prize money considering their personal statistics - takes into account inflation rates over the years
 '''
 class PrizeMoneyLinRes:
     """ Constructor """
@@ -29,6 +29,7 @@ class PrizeMoneyLinRes:
         """
         self.data = pd.read_csv(filepath)
         self.qual_to_quant_data()
+        self.update_prize_money()
 
     def qual_to_quant_data(self):
         """
@@ -45,6 +46,22 @@ class PrizeMoneyLinRes:
         which_child = self.which_child_transformer.transform(which_child)
         self.data["which_child_quant"] = which_child
 
+    def update_prize_money(self):
+        """
+        Update players' prize money using the inflation dataset that takes into consideration the year
+        Make players' "new prize money" equal to what their prize money would be today (2022) considering inflation
+        :return: nothing
+        """
+        inflation = pd.read_csv("inflation_data.csv")
+        new_prize_money = []
+        for index in range(len(self.data)):
+            year = self.data["year_turned_pro"][index]
+            desired_row = year - 1968
+            old_prize_money = self.data["prize_money"][index]
+            inflation_rate = inflation["inflation"][desired_row]
+            new_prize_money.append(old_prize_money*inflation_rate)
+        self.data["new_prize_money"] = new_prize_money
+
     def get_x_and_y(self):
         """
         Get the values of the independent and dependent variables for the linear regression model
@@ -55,7 +72,7 @@ class PrizeMoneyLinRes:
                   "sibling_number", "which_child_quant"]].values
         self.scaler = StandardScaler().fit(x)
         x = self.scaler.transform(x)
-        y = self.data["prize_money"].values
+        y = self.data["new_prize_money"].values
         return x, y
 
     def create_model(self, x, y):
@@ -103,12 +120,17 @@ class PrizeMoneyLinRes:
 
         # Compare the actual and predicted values
         print("Testing Linear Model with Test Data:")
+        print("Note that these predicitons consider inflation rates, so these are prize moneys predicted for if"
+              "this player plasy in 2022")
         for index in range(len(x_test)):
             # Acutal y value
             actual = y_test[index]
 
             # Predicted y value
-            y_pred = predictions[index]
+            y_pred = round(predictions[index], 2)
+            if y_pred < 0:
+                y_pred = 0 # You can't lose prize money, so it need to be >= 0
+
 
             # Test x values
             x_height = x_test[index][0]
@@ -122,6 +144,7 @@ class PrizeMoneyLinRes:
             x_num_sibs = x_test[index][8]
             x_which_child = x_test[index][9]
 
+            # Print prediction
             print("Height: ", x_height, " Starting Age: ", x_start_age, " Age Turned Pro: ", x_pro_age,
                   " Training City Average Income: ", x_train_inc, " Tennis Academy: ", x_academy, " Coach at Age 15: ",
                   x_coach, " Birth City Average Income: ", x_birth_inc, " Parental Marital Status: ", x_marital,

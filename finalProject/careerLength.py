@@ -97,7 +97,6 @@ class CareerLengthLinRes:
         :param y_test: corresponding career length testing data
         :return: nothing
         """
-
         # Get the predicted y values for the x_test values - return an array
         predictions = self.model.predict(x_test)
 
@@ -122,6 +121,7 @@ class CareerLengthLinRes:
             x_num_sibs = x_test[index][8]
             x_which_child = x_test[index][9]
 
+            # Print predictions
             print("Height: ", x_height, " Starting Age: ", x_start_age, " Age Turned Pro: ", x_pro_age,
                   " Training City Average Income: ", x_train_inc, " Tennis Academy: ", x_academy, " Coach at Age 15: ",
                   x_coach, " Birth City Average Income: ", x_birth_inc, " Parental Marital Status: ", x_marital,
